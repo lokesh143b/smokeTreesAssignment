@@ -25,7 +25,7 @@ mongoose
     console.log(err);
   });
 
-
+  //https://smoketreesassignment.onrender.com/register
   app.post("/register", async (req, res) => {
   try {
     const { name, address } = req.body;
@@ -49,6 +49,7 @@ mongoose
   }
 });
 
+//https://smoketreesassignment.onrender.com/get-users-data
 app.get("/get-users-data" , async(req,res) => {
 
     try {
@@ -61,6 +62,7 @@ app.get("/get-users-data" , async(req,res) => {
     }
 })
 
+//https://smoketreesassignment.onrender.com/get-addresses
 app.get("/get-addresses" , async(req,res)=> {
     try {
         const addresses = await Address.find()
