@@ -49,6 +49,29 @@ mongoose
   }
 });
 
+app.get("/get-users-data" , async(req,res) => {
+
+    try {
+        const users = await User.find()
+        if(!users) return res.status(404).json({error : "users not found"})
+        res.json({users})
+    } catch (error) {
+        res.status(500).json("Error saving data");
+        console.log(error);
+    }
+})
+
+app.get("/get-addresses" , async(req,res)=> {
+    try {
+        const addresses = await Address.find()
+        if(!addresses) return res.status(404).json({error : "addresses not found"})
+        res.json({addresses})
+    } catch (error) {
+        res.status(500).json("Error saving data");
+        console.log(error);
+    }
+})
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
